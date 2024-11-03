@@ -14,7 +14,7 @@ import {
 const ProfileUpdate = () => {
   // State to hold the user's profile information
   const [profile, setProfile] = useState({
-    idNumber: '12345678', // Current data as an example
+    Documentnumber: '12345678', // Current data as an example
     firstName: 'John',
     lastName: 'Doe',
     phone: '1234567890',
@@ -74,18 +74,18 @@ const ProfileUpdate = () => {
 
           <CRow className="mb-3">
             <CCol md="6">
-              <CFormLabel>ID Number</CFormLabel>
+              <CFormLabel>Document number</CFormLabel>
               <div style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '4px', marginBottom: '10px' }}>
-                {profile.idNumber} {/* Current ID Number */}
+                {profile.Documentnumber} {/* Current Document number */}
               </div>
               <CFormInput
                 type="text"
-                name="idNumber"
-                value={profile.idNumber}
+                name="Documentnumber"
+                value={profile.Documentnumber}
                 onChange={handleChange}
-                placeholder="Enter ID Number"
+                placeholder="Enter Document number"
                 required
-                feedbackInvalid="ID Number is required."
+                feedbackInvalid="Document number is required."
               />
             </CCol>
             <CCol md="6">
