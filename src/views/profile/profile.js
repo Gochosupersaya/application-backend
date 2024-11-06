@@ -3,6 +3,7 @@ import {
   CCard,
   CCardBody,
   CCardHeader,
+  CForm,
   CFormLabel,
   CFormInput,
   CRow,
@@ -15,6 +16,7 @@ const ProfileUpdate = () => {
   const [profile, setProfile] = useState({
     Documentnumber: '12345678', // Current data as an example
     firstName: 'John',
+    lastName: 'Doe',
     phone: '1234567890',
     email: 'john.doe@example.com',
     address: '123 Main St',
@@ -27,7 +29,7 @@ const ProfileUpdate = () => {
   const [profilePicture, setProfilePicture] = useState(null)
 
   const handleChange = (e) => {
-    setProfilee({
+    setProfile({
       ...profile,
       [e.target.name]: e.target.value,
     })

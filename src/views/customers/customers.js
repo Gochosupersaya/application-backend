@@ -223,6 +223,7 @@ const ClientsCrud = () => {
             <CTableHeaderCell>Nationality</CTableHeaderCell>
             <CTableHeaderCell>Email</CTableHeaderCell>
             <CTableHeaderCell>Phone</CTableHeaderCell>
+            <CTableHeaderCell>Address</CTableHeaderCell>
             <CTableHeaderCell>Actions</CTableHeaderCell>
           </CTableRow>
         </CTableHead>
@@ -235,6 +236,7 @@ const ClientsCrud = () => {
               <CTableDataCell>{client.nationality}</CTableDataCell>
               <CTableDataCell>{client.email}</CTableDataCell>
               <CTableDataCell>{client.phone}</CTableDataCell>
+              <CTableDataCell>{client.address}</CTableDataCell>
               <CTableDataCell>
                 <CButton color="primary" onClick={() => openClientDetails(client)}>
                   View
