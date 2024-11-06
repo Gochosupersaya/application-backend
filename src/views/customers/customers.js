@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   CTable,
   CTableHead,
@@ -173,10 +173,6 @@ const ClientsCrud = () => {
   };
 
   const addMedicalHistory = () => {
-    setForm({
-      ...form,
-      medicalHistory: [...form.medicalHistory, { type: "", description: "" }],
-    });
   };
 
   const deleteMedicalHistory = (index) => {
@@ -215,7 +211,7 @@ const ClientsCrud = () => {
 
   return (
     <CContainer>
-      <CButton color="success" onClick={() => openModal()}>
+      <CButton color="success" onClick={() => {}}>
         Create Client
       </CButton>
       <CTable hover responsive>
