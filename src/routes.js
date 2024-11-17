@@ -6,6 +6,10 @@ const Typography = React.lazy(() => import('./views/theme/typography/Typography'
 const Profile = React.lazy(() => import('./views/profile/profile'))
 const Customers = React.lazy(() => import('./views/customers/customers'))
 
+// Activities
+const ActivityLog = React.lazy(() => import('./views/activities/activity-log/activity_log'))
+const CustomerRegistration = React.lazy(() => import('./views/activities/customer-registration/customer_registration'))
+
 // Base
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
 const Breadcrumbs = React.lazy(() => import('./views/base/breadcrumbs/Breadcrumbs'))
@@ -61,6 +65,8 @@ const routes = [
   { path: '/theme/typography', name: 'Typography', element: Typography },
   { path: '/profile', name: 'Profile', element: Profile },
   { path: '/customers', name: 'Customers', element: Customers },
+  { path: '/activities/activity-log', name: 'Activity log', element: ActivityLog, exact: true },
+  { path: '/activities/customer-registration', name: 'Customer registration', element: CustomerRegistration, exact: true },
   { path: '/base', name: 'Base', element: Cards, exact: true },
   { path: '/base/accordion', name: 'Accordion', element: Accordion },
   { path: '/base/breadcrumbs', name: 'Breadcrumbs', element: Breadcrumbs },

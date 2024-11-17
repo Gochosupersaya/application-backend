@@ -14,6 +14,7 @@ import {
   cilStar,
   cilPeople,
   cilUser,
+  cilTask,
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
@@ -55,6 +56,24 @@ const _nav = [
     name: 'Customers',
     to: '/customers',
     icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavGroup,
+    name: 'Activities',
+    to: '/activities',
+    icon: <CIcon icon={cilTask} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Activity log',
+        to: '/activities/activity-log',
+      },
+      {
+        component: CNavItem,
+        name: 'Customer registration',
+        to: '/activities/customer-registration',
+      },
+    ],
   },
   {
     component: CNavTitle,
