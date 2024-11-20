@@ -18,7 +18,7 @@ import {
   CContainer,
 } from "@coreui/react";
 
-const API_URL = "http://localhost:5000"; // Asegúrate de que el JSON Server esté corriendo
+const API_URL = "http://localhost:5000";
 
 const ClientsCrud = () => {
   const [data, setData] = useState([]);
