@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -103,9 +104,11 @@ const Login = () => {
                       If you have not yet created a session, 
                       you just have to follow a few short steps
                     </p>
-                    <CButton color="primary" className="mt-3" active tabIndex={-1}>
-                      Register Now!
-                    </CButton>
+                    <Link to="/register">
+                      <CButton color="primary" className="mt-3" active tabIndex={-1}>
+                        Register Now!
+                      </CButton>
+                    </Link>
                   </div>
                 </CCardBody>
               </CCard>

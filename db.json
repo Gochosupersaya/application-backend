@@ -8,7 +8,7 @@
       "nationality": "colombiano",
       "email": "B@gmail.com",
       "phone": "04149787383",
-      "address": "kjkj",
+      "address": "borota la mamona",
       "birthDate": "2000-01-03",
       "medicalHistory": [],
       "guardian": {
@@ -19,31 +19,31 @@
   ],
   "medical_need_type": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Illness"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Allergy"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Disability"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Medication"
     }
   ],
   "medical_history": [
     {
-      "id": 1,
+      "id": "1",
       "client_id": 1,
       "type_id": 2,
       "allergy_description": "Peanut allergy"
     },
     {
-      "id": 2,
+      "id": "2",
       "client_id": 2,
       "type_id": 1,
       "allergy_description": "Chronic back pain"
@@ -51,39 +51,15 @@
   ],
   "roles": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Employee"
     }
   ],
   "users": [
-    {
-      "id": 1,
-      "document_number": "11223344",
-      "first_name": "John",
-      "last_name": "Doe",
-      "email": "john.doe@example.com",
-      "address": "789 Pine St",
-      "password": "hashed_password_1",
-      "role_id": 1,
-      "last_signin": "2024-11-16T14:30:00Z",
-      "status": "Active"
-    },
-    {
-      "id": 2,
-      "document_number": "44332211",
-      "first_name": "Jane",
-      "last_name": "Doe",
-      "email": "jane.doe@example.com",
-      "address": "321 Oak St",
-      "password": "hashed_password_2",
-      "role_id": 2,
-      "last_signin": "2024-11-15T10:00:00Z",
-      "status": "Active"
-    },
     {
       "id": "36fb",
       "document_number": "22",
@@ -95,21 +71,57 @@
       "role_id": 2,
       "status": "Active",
       "last_signin": "2024-11-20T10:06:07.942Z"
+    },
+    {
+      "id": "6022",
+      "document_number": "223",
+      "first_name": "Brandon",
+      "last_name": "Sayago",
+      "email": "B@gmail.com",
+      "address": "kjkj",
+      "password": "1234",
+      "role_id": 1,
+      "status": "Active",
+      "last_signin": "2024-11-20T11:43:05.522Z"
+    },
+    {
+      "id": "1632",
+      "document_number": "222",
+      "first_name": "Brandon",
+      "last_name": "Sayago",
+      "email": "B@gmail.com",
+      "address": "kjkj",
+      "password": "1234",
+      "role_id": 1,
+      "status": "Active",
+      "last_signin": "2024-11-20T11:45:08.613Z"
+    },
+    {
+      "id": "4ed4",
+      "document_number": "29988648",
+      "first_name": "Eric",
+      "last_name": "Martinez",
+      "email": "ericmartinez@hotmail.com",
+      "address": "capacho",
+      "password": "123",
+      "role_id": 1,
+      "status": "Active",
+      "last_signin": "2024-11-20T18:35:43.854Z"
     }
   ],
   "activity_type": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Tourist Tour"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Vacation Plan"
     }
   ],
   "activity": [
     {
-      "id": 1,
+      "id": "1",
       "type_id": 1,
       "activity_date": "2024-12-01",
       "activity_time": "10:00:00",
@@ -117,7 +129,7 @@
       "description": "City sightseeing tour"
     },
     {
-      "id": 2,
+      "id": "2",
       "type_id": 2,
       "activity_date": "2024-12-15",
       "activity_time": "08:30:00",
@@ -127,38 +139,38 @@
   ],
   "activity_photo": [
     {
-      "id": 1,
+      "id": "1",
       "activity_id": 1,
       "photo": "tour1.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "activity_id": 2,
       "photo": "vacation1.jpg"
     }
   ],
   "guides": [
     {
-      "id": 1,
+      "id": "1",
       "client_id": 1,
       "activity_id": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "client_id": 2,
       "activity_id": 2
     }
   ],
   "itineraries": [
     {
-      "id": 1,
+      "id": "1",
       "activity_id": 1,
       "date": "2024-12-01",
       "time": "09:00:00",
       "description": "Meet at the central square"
     },
     {
-      "id": 2,
+      "id": "2",
       "activity_id": 2,
       "date": "2024-12-15",
       "time": "07:30:00",
@@ -167,7 +179,7 @@
   ],
   "vehicles": [
     {
-      "id": 1,
+      "id": "1",
       "brand": "Toyota",
       "model": "Hiace",
       "year": 2018,
@@ -176,7 +188,7 @@
       "photo": "van1.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "brand": "Ford",
       "model": "Transit",
       "year": 2020,
@@ -187,13 +199,13 @@
   ],
   "activity_vehicle": [
     {
-      "id": 1,
+      "id": "1",
       "vehicle_id": 1,
       "client_id": 1,
       "activity_id": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "vehicle_id": 2,
       "client_id": 2,
       "activity_id": 2
@@ -201,13 +213,13 @@
   ],
   "bookings": [
     {
-      "id": 1,
+      "id": "1",
       "user_id": 1,
       "client_id": 1,
       "date": "2024-11-15T10:00:00Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "user_id": 2,
       "client_id": 2,
       "date": "2024-11-16T12:00:00Z"
@@ -215,7 +227,7 @@
   ],
   "payments": [
     {
-      "id": 1,
+      "id": "1",
       "user_id": 1,
       "booking_id": 1,
       "total_amount": 50,
@@ -223,7 +235,7 @@
       "payment_date": "2024-11-15T11:00:00Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "user_id": 2,
       "booking_id": 2,
       "total_amount": 100,
