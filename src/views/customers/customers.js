@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   CTable,
   CTableHead,
@@ -18,83 +18,11 @@ import {
   CContainer,
 } from "@coreui/react";
 
-const initialData = [
-    {
-      id: 1,
-      idCard: "12345678",
-      firstName: "Juan",
-      lastName: "Perez",
-      nationality: "Venezuelan",
-      email: "juan@example.com",
-      phone: "555-1234",
-      address: "Street 1, Caracas",
-      birthDate: "2010-01-01",
-      medicalHistory: [
-        { type: "Medication", description: "Ibuprofen" },
-        { type: "Allergy", description: "Pollen" },
-      ],
-      guardian: { name: "Pedro Perez", phone: "555-5678" },
-    },
-    {
-      id: 2,
-      idCard: "123678",
-      firstName: "Ana",
-      lastName: "Gomez",
-      nationality: "Colombian",
-      email: "ana@example.com",
-      phone: "555-2345",
-      address: "Street 2, Bogotá",
-      birthDate: "1985-05-15",
-      medicalHistory: [],
-      guardian: { name: null, phone: null },
-    },
-    {
-      id: 3,
-      idCard: "987654",
-      firstName: "Carlos",
-      lastName: "Ramirez",
-      nationality: "Peruvian",
-      email: "carlos@example.com",
-      phone: "555-3456",
-      address: "Street 3, Lima",
-      birthDate: "1990-12-12",
-      medicalHistory: [],
-      guardian: { name: null, phone: null },
-    },
-    {
-      id: 4,
-      idCard: "456123",
-      firstName: "Lucia",
-      lastName: "Hernandez",
-      nationality: "Chilean",
-      email: "lucia@example.com",
-      phone: "555-4567",
-      address: "Street 4, Santiago",
-      birthDate: "1975-03-30",
-      medicalHistory: [],
-      guardian: { name: null, phone: null },
-    },
-    {
-      id: 5,
-      idCard: "321987",
-      firstName: "Antonio",
-      lastName: "Martinez",
-      nationality: "Ecuadorian",
-      email: "antonio@example.com",
-      phone: "555-5678",
-      address: "Street 5, Quito",
-      birthDate: "1950-08-20",
-      medicalHistory: [
-        { type: "Illness", description: "Diabetes" },
-        { type: "Medication", description: "Metformin" },
-      ],
-      guardian: { name: null, phone: null },
-    },
-];
-  
+const API_URL = "http://localhost:5000"; // Asegúrate de que el JSON Server esté corriendo
 
 const ClientsCrud = () => {
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState([]);
+  const [medicalNeeds, setMedicalNeeds] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [detailsModalVisible, setDetailsModalVisible] = useState(false);
@@ -110,27 +38,42 @@ const ClientsCrud = () => {
     phone: "",
     address: "",
     birthDate: "",
-    medicalHistory: [{ type: "", description: "" }],
+    medicalHistory: [{ type_id: "", description: "" }],
     guardian: { name: "", phone: "" },
   });
   const [editMode, setEditMode] = useState(false);
   const [age, setAge] = useState(null);
 
+  // Fetch initial data
+  useEffect(() => {
+    fetch(`${API_URL}/clients`)
+      .then((response) => response.json())
+      .then(setData)
+      .catch((error) => console.error("Error fetching clients:", error));
+
+    fetch(`${API_URL}/medical_need_type`)
+      .then((response) => response.json())
+      .then(setMedicalNeeds)
+      .catch((error) => console.error("Error fetching medical needs:", error));
+  }, []);
+
   const openModal = (client = null) => {
     setEditMode(Boolean(client));
-    setForm(client || {
-      id: "",
-      idCard: "",
-      firstName: "",
-      lastName: "",
-      nationality: "",
-      email: "",
-      phone: "",
-      address: "",
-      birthDate: "",
-      medicalHistory: [{ type: "", description: "" }],
-      guardian: { name: "", phone: "" },
-    });
+    setForm(
+      client || {
+        id: "",
+        idCard: "",
+        firstName: "",
+        lastName: "",
+        nationality: "",
+        email: "",
+        phone: "",
+        address: "",
+        birthDate: "",
+        medicalHistory: [{ type_id: "", description: "" }],
+        guardian: { name: "", phone: "" },
+      }
+    );
     setAge(client ? calculateAge(client.birthDate) : null);
     setModalVisible(true);
   };
@@ -175,7 +118,7 @@ const ClientsCrud = () => {
   const addMedicalHistory = () => {
     setForm({
       ...form,
-      medicalHistory: [...form.medicalHistory, { type: "", description: "" }],
+      medicalHistory: [...form.medicalHistory, { type_id: "", description: "" }],
     });
   };
 
@@ -186,10 +129,25 @@ const ClientsCrud = () => {
 
   const saveClient = () => {
     if (editMode) {
-      setData(data.map((item) => (item.id === form.id ? form : item)));
+      fetch(`${API_URL}/clients/${form.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      })
+        .then((response) => response.json())
+        .then((updatedClient) =>
+          setData((prev) =>
+            prev.map((item) => (item.id === updatedClient.id ? updatedClient : item))
+          )
+        );
     } else {
-      setForm({ ...form, id: data.length + 1 });
-      setData([...data, { ...form, id: data.length + 1 }]);
+      fetch(`${API_URL}/clients`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, id: undefined }),
+      })
+        .then((response) => response.json())
+        .then((newClient) => setData((prev) => [...prev, newClient]));
     }
     closeModal();
   };
@@ -200,7 +158,9 @@ const ClientsCrud = () => {
   };
 
   const confirmDeleteClient = () => {
-    setData(data.filter((item) => item.id !== idClientToDelete));
+    fetch(`${API_URL}/clients/${idClientToDelete}`, { method: "DELETE" })
+      .then(() => setData((prev) => prev.filter((item) => item.id !== idClientToDelete)))
+      .catch((error) => console.error("Error deleting client:", error));
     setConfirmDelete(false);
   };
 
@@ -333,11 +293,18 @@ const ClientsCrud = () => {
           <h6>Medical History</h6>
           {form.medicalHistory.map((item, index) => (
             <div key={index}>
-              <CFormInput
+              <CFormSelect
                 label="Type"
-                value={item.type}
-                onChange={(e) => handleMedicalHistoryChange(index, "type", e.target.value)}
-              />
+                value={item.type_id}
+                onChange={(e) => handleMedicalHistoryChange(index, "type_id", e.target.value)}
+              >
+                {medicalNeeds.map((need) => (
+                <option key={need.id} value={need.id}>
+                {need.name}
+                </option>
+                ))}
+              </CFormSelect>
+
               <CFormTextarea
                 label="Description"
                 value={item.description}

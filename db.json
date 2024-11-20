@@ -1,0 +1,222 @@
+{
+  "clients": [
+    {
+      "id": "2518",
+      "idCard": "280",
+      "firstName": "Brandon",
+      "lastName": "Sayago",
+      "nationality": "colombiano",
+      "email": "B@gmail.com",
+      "phone": "04149787383",
+      "address": "kjkj",
+      "birthDate": "2000-01-03",
+      "medicalHistory": [],
+      "guardian": {
+        "name": "",
+        "phone": ""
+      }
+    }
+  ],
+  "medical_need_type": [
+    {
+      "id": 1,
+      "name": "Illness"
+    },
+    {
+      "id": 2,
+      "name": "Allergy"
+    },
+    {
+      "id": 3,
+      "name": "Disability"
+    },
+    {
+      "id": 4,
+      "name": "Medication"
+    }
+  ],
+  "medical_history": [
+    {
+      "id": 1,
+      "client_id": 1,
+      "type_id": 2,
+      "allergy_description": "Peanut allergy"
+    },
+    {
+      "id": 2,
+      "client_id": 2,
+      "type_id": 1,
+      "allergy_description": "Chronic back pain"
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "name": "Admin"
+    },
+    {
+      "id": 2,
+      "name": "Employee"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "document_number": "11223344",
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "address": "789 Pine St",
+      "password": "hashed_password_1",
+      "role_id": 1,
+      "last_signin": "2024-11-16T14:30:00Z",
+      "status": "Active"
+    },
+    {
+      "id": 2,
+      "document_number": "44332211",
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "email": "jane.doe@example.com",
+      "address": "321 Oak St",
+      "password": "hashed_password_2",
+      "role_id": 2,
+      "last_signin": "2024-11-15T10:00:00Z",
+      "status": "Active"
+    }
+  ],
+  "activity_type": [
+    {
+      "id": 1,
+      "name": "Tourist Tour"
+    },
+    {
+      "id": 2,
+      "name": "Vacation Plan"
+    }
+  ],
+  "activity": [
+    {
+      "id": 1,
+      "type_id": 1,
+      "activity_date": "2024-12-01",
+      "activity_time": "10:00:00",
+      "price_per_person": 50,
+      "description": "City sightseeing tour"
+    },
+    {
+      "id": 2,
+      "type_id": 2,
+      "activity_date": "2024-12-15",
+      "activity_time": "08:30:00",
+      "price_per_person": 100,
+      "description": "Beach vacation package"
+    }
+  ],
+  "activity_photo": [
+    {
+      "id": 1,
+      "activity_id": 1,
+      "photo": "tour1.jpg"
+    },
+    {
+      "id": 2,
+      "activity_id": 2,
+      "photo": "vacation1.jpg"
+    }
+  ],
+  "guides": [
+    {
+      "id": 1,
+      "client_id": 1,
+      "activity_id": 1
+    },
+    {
+      "id": 2,
+      "client_id": 2,
+      "activity_id": 2
+    }
+  ],
+  "itineraries": [
+    {
+      "id": 1,
+      "activity_id": 1,
+      "date": "2024-12-01",
+      "time": "09:00:00",
+      "description": "Meet at the central square"
+    },
+    {
+      "id": 2,
+      "activity_id": 2,
+      "date": "2024-12-15",
+      "time": "07:30:00",
+      "description": "Departure from hotel"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": 1,
+      "brand": "Toyota",
+      "model": "Hiace",
+      "year": 2018,
+      "license_plate": "ABC-1234",
+      "color": "White",
+      "photo": "van1.jpg"
+    },
+    {
+      "id": 2,
+      "brand": "Ford",
+      "model": "Transit",
+      "year": 2020,
+      "license_plate": "XYZ-5678",
+      "color": "Silver",
+      "photo": "van2.jpg"
+    }
+  ],
+  "activity_vehicle": [
+    {
+      "id": 1,
+      "vehicle_id": 1,
+      "client_id": 1,
+      "activity_id": 1
+    },
+    {
+      "id": 2,
+      "vehicle_id": 2,
+      "client_id": 2,
+      "activity_id": 2
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "client_id": 1,
+      "date": "2024-11-15T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "client_id": 2,
+      "date": "2024-11-16T12:00:00Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "booking_id": 1,
+      "total_amount": 50,
+      "payment_status": "Paid",
+      "payment_date": "2024-11-15T11:00:00Z"
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "booking_id": 2,
+      "total_amount": 100,
+      "payment_status": "Pending",
+      "payment_date": "2024-11-16T13:00:00Z"
+    }
+  ]
+}
