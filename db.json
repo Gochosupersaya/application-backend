@@ -3,7 +3,7 @@
     {
       "id": "2518",
       "idCard": "280",
-      "firstName": "Brandon",
+      "firstName": "fran",
       "lastName": "Sayago",
       "nationality": "colombiano",
       "email": "B@gmail.com",
@@ -11,6 +11,27 @@
       "address": "borota la mamona",
       "birthDate": "2000-01-03",
       "medicalHistory": [],
+      "guardian": {
+        "name": "",
+        "phone": ""
+      }
+    },
+    {
+      "id": "68dd",
+      "idCard": "12121212",
+      "firstName": "ALVA",
+      "lastName": "ENRIQUE",
+      "nationality": "venezolano",
+      "email": "bran@gmai.com",
+      "phone": "04147586978",
+      "address": "1234",
+      "birthDate": "2000-01-02",
+      "medicalHistory": [
+        {
+          "type_id": "2",
+          "description": "jojo"
+        }
+      ],
       "guardian": {
         "name": "",
         "phone": ""
