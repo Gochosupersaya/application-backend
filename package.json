@@ -17,7 +17,8 @@
     "build": "vite build",
     "lint": "eslint \"src/**/*.js\"",
     "serve": "vite preview",
-    "start": "vite"
+    "start": "node src/server/server.js",
+    "dev": "node --env-file .env --watch src/server/server.js"
   },
   "dependencies": {
     "@coreui/chartjs": "^4.0.0",
